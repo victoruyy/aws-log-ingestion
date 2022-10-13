@@ -204,7 +204,7 @@ resource "aws_lambda_permission" "log_invoke_permission" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.ingestion_function.function_name
   principal     = "logs.${local.aws_region}.amazonaws.com"
-  source_arn    = "arn:${local.aws_partition}:logs:${local.aws_region}:${local.aws_account_id}:log-group:*"
+  source_arn    = "arn:${local.aws_partition}:logs:${local.aws_region}:${local.aws_account_id}:log-group:/ecs/*"
 }
 
 output "function_arn" {
